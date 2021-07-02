@@ -67,7 +67,6 @@ const render = function() {
 // loop working
 const GameLooping = function() {
     requestAnimationFrame(GameLooping)
-
     update();
     render();
 }
