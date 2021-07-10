@@ -44,7 +44,7 @@ document.body.appendChild(renderer.domElement);
 4. Add to Scene --> scene.add(cube)
 */
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( {color: 0x00ff00, wireframe: false} );
+const material = new THREE.MeshBasicMaterial( {color: 0x00ff00, wireframe: true} );
 const cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
 
@@ -67,6 +67,7 @@ const render = function() {
 // loop working
 const GameLooping = function() {
     requestAnimationFrame(GameLooping)
+
     update();
     render();
 }

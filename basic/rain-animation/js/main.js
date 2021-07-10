@@ -1,4 +1,4 @@
-const scene, camera, renderer, cloudParticles, = [], flash, rain, rainGeo, rainCount = 15000
+let scene, camera, renderer, cloudParticles = [], flash, rain, rainGeo, rainCount = 15000
 
 function init() {
    scene = new THREE.Scene();
