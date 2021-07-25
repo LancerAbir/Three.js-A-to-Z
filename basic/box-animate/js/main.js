@@ -1,4 +1,9 @@
-// Create Scene
+/**
+ **  ~~~~~~~~~~~~~  Create Scene  ~~~~~~~~~~~~~
+ *! dddd
+ *? dsds
+ */
+
 const scene = new THREE.Scene();
 
 // camera add
@@ -24,10 +29,10 @@ const camera = new THREE.PerspectiveCamera(
 //    1000
 // );
 
-// Create Renderer
-/*
-camera er picture content hoy 
-*/
+/**
+ **  ~~~~~~~~~~~~~  Create Renderer  ~~~~~~~~~~~~~
+ *! camera er picture content hoy
+ */
 const renderer = new THREE.WebGLRenderer();
 // Renderer Color (Background Color)
 renderer.setClearColor("#999999");
@@ -36,7 +41,9 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // Create Renderer Element (page e thakar jonno)
 document.body.appendChild(renderer.domElement);
 
-// Responsive
+/**
+ **  ~~~~~~~~~~~~~  Responsive ~~~~~~~~~~~~~
+ */
 window.addEventListener("resize", () => {
    const width = window.innerWidth;
    const height = window.innerHeight;
@@ -45,19 +52,19 @@ window.addEventListener("resize", () => {
    camera.updateProjectionMatrix();
 });
 
-// control with mouse
 /**
- * 1. add file OrbitControls
+ **  ~~~~~~~~~~~~~  Control With Mouse ~~~~~~~~~~~~~
+ *! 1. add file OrbitControls
  */
 const mouseControl = new THREE.OrbitControls(camera, renderer.domElement);
 
-// Create Shape ---> BoxGeometry
-/*
-1. Create Shape --> BoxGeometry("width", "height", "depth")
-2. Color --> MeshBasicMaterial( {color: 0x00ff00} )
-3. Create Cube --> Mesh( geometry, material )
-4. Add to Scene --> scene.add(mesh)
-*/
+/**
+ **  ~~~~~~~~~~~~~  Create Shape ---> BoxGeometry ~~~~~~~~~~~~~
+ *! 1. Create Shape --> BoxGeometry("width", "height", "depth")
+ *! 2. Color --> MeshBasicMaterial( {color: 0x00ff00} )
+ *! 3. Create Cube --> Mesh( geometry, material )
+ *! 4. Add to Scene --> scene.add(mesh)
+ */
 const length = 12,
    width = 8;
 
@@ -86,10 +93,14 @@ const material = new THREE.MeshLambertMaterial({
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
 
-// Change Camera Position
+/**
+ **  ~~~~~~~~~~~~~  Change Camera Position ~~~~~~~~~~~~~
+ */
 camera.position.z = 60;
 
-// // Light
+/**
+ **  ~~~~~~~~~~~~~ Set Light  ~~~~~~~~~~~~~
+ */
 // const light = new THREE.PointLight(0xffffff, 1, 500);
 // light.position.set(10, 0, 25);
 // scene.add(light);
@@ -109,7 +120,9 @@ spotLight.shadow.camera.fov = 30;
 
 scene.add(spotLight);
 
-// Work Logic
+/**
+ **  ~~~~~~~~~~~~~ Work Logic  ~~~~~~~~~~~~~
+ */
 const update = () => {
    // position
    mesh.position.x = -2;
@@ -125,12 +138,16 @@ const update = () => {
    // mesh.scale.x -= 0.01;
 };
 
-// Draw Scene
+/**
+ **  ~~~~~~~~~~~~~ Draw Scene  ~~~~~~~~~~~~~
+ */
 const render = () => {
    renderer.render(scene, camera);
 };
 
-// loop working
+/**
+ **  ~~~~~~~~~~~~~ Loop Working  ~~~~~~~~~~~~~
+ */
 const GameLooping = () => {
    requestAnimationFrame(GameLooping);
    update();
